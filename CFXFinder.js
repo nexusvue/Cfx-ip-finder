@@ -36,7 +36,7 @@ client.on("message", function(message) {
             var name = req.getResponseHeader('x-citizenfx-join-token').toLowerCase();  
         }while(headers.startsWith('h'))  // sometimes result is url idk why but this makes sure that u don't get https address as result
 
-        if(!headers.startsWith('h')){ // check if the isn't url
+        if(!headers.startsWith('h')){ // check if the ResponseHeader isn't url
             const exampleEmbed = new Discord.MessageEmbed()
             .setColor('#0099ff')
              .setTitle('Ultimate Rat CFX Finderino.')
