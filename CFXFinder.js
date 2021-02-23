@@ -8,11 +8,6 @@ const prefix = '-'
 
 client.login('token');
 
-client.once('ready', () => {
-    
-});
- 
-
 client.on("message", function(message) {
 
     if (!message.content.startsWith(prefix) || message.author.bot) return;
