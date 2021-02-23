@@ -1,46 +1,14 @@
-
 const Discord = require('discord.js')
-const XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
+const XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest; /*Parempi vaan constiin päivittää*/
 const client = new Discord.Client();
 const prefix = '-'
+
 client.login('');
 
 client.on('ready', () => {
 	console.log(`bot, is ready for use.`, "ready");	
 });
 
-function Ipaddress(link, channel, user) {
-	console.log('Trying to find ip for ' + user);
-	try {
-		const location = client.channels.cache.get(channel);
-		const req = new XMLHttpRequest();
-			req.open('GET', link, false);
-			req.send(null); 
-			const headers = req.getResponseHeader('x-citizenfx-url');
-			if(headers.includes('https://')) {
-				Ipaddress2(link)
-			} else {
-				const Message = new Discord.MessageEmbed()
-				.setColor('#0099ff')
-				.setTitle('Ultimate Rat CFX Finderino.')
-				.addFields(
-				{ name: 'CFX', value: link },
-				{ name: 'IP Address', value: headers },
-				)
-				.setTimestamp()
-				.setFooter('Ultimate Rat CFX Finderino.');
-				location.send(Message);
-			}
-	}catch (error) {
-			Ipaddress2(link)
-	}
-}
-
-function Ipaddress2(link) {
-	 setTimeout(Ipaddress, link ,1000);
-}
-	
-	
 	function Main(url, channel) {
 			try {
 				do {
@@ -81,7 +49,7 @@ client.on("message", function(message) {
 					.setDescription(`You didn't provide any arguments, ${message.author}!`)
 					.setTimestamp()
 					.setFooter('Error.');
-						message.channel.send(exampleEmbed33);
+						message.channel.send(exampleEmbed33); /*Returnia ei tarvitse käyttää ollenkaan koska kyseessä ei ole c++ ja sen paskat funktiot*/
 		} else if(link.includes('https://')) {
 			const channel = message.channel.id;
 			Main(link, channel);
@@ -96,4 +64,3 @@ client.on("message", function(message) {
 		}
 	}
 });
-
