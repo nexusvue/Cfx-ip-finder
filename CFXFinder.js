@@ -11,7 +11,7 @@ client.login('token');
 client.once('ready', () => {
     
 });
-
+ 
 
 client.on("message", function(message) {
 
@@ -30,13 +30,13 @@ client.on("message", function(message) {
 
         do {
             var req = new XMLHttpRequest();
-            req.open('GET', args, false);
-            req.send(null);
+            req.open('GET', args, false); // open connection to selected cfx url
+            req.send(null); 
             var headers = req.getResponseHeader('x-citizenfx-url').toLowerCase();  
             var name = req.getResponseHeader('x-citizenfx-join-token').toLowerCase();  
-        }while(headers.startsWith('h'))
+        }while(headers.startsWith('h'))  // sometimes result is url idk why but this makes sure that u don't get https address as result
 
-        if(!headers.startsWith('h')){
+        if(!headers.startsWith('h')){ // check if the isn't url
             const exampleEmbed = new Discord.MessageEmbed()
             .setColor('#0099ff')
              .setTitle('Ultimate Rat CFX Finderino.')
