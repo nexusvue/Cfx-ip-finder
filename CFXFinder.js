@@ -6,22 +6,12 @@ var XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
 const client = new Discord.Client();
 const prefix = '-'
 
-client.login('bottokken');
+client.login('token');
 
 client.once('ready', () => {
     
 });
-var headers;
-var name;
 
-function request(url)
-{
-    var req = new XMLHttpRequest();
-    req.open('GET', args, false);
-    req.send(null);
-    headers = req.getResponseHeader('x-citizenfx-url').toLowerCase();  
-    name = req.getResponseHeader('x-citizenfx-join-token').toLowerCase();  
-}
 
 client.on("message", function(message) {
 
@@ -39,7 +29,11 @@ client.on("message", function(message) {
         }
 
         do {
-            request(args)
+            var req = new XMLHttpRequest();
+            req.open('GET', args, false);
+            req.send(null);
+            var headers = req.getResponseHeader('x-citizenfx-url').toLowerCase();  
+            var name = req.getResponseHeader('x-citizenfx-join-token').toLowerCase();  
         }while(headers.startsWith('h'))
 
         if(!headers.startsWith('h')){
